@@ -1,6 +1,19 @@
 {
+  "name": "ylgy-rush",
+  "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@7.11.0",
+  "description": "羊了个羊网页版刷次数",
+  "author": {
+    "url": "https://kuizuo.cn",
+    "email": "hi@kuizuo.cn",
+    "name": "Kuizuo"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/kuizuo/ylgy-rush",
+    "type": "git"
+  },
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",

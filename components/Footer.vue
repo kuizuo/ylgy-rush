@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import pkg from '~/package.json'
+</script>
+
 <template>
   <div
     text="xl gray4"
@@ -6,7 +10,7 @@
     justify-center
     gap-3
   >
-    <a i-carbon-logo-github href="https://github.com/kuizuo/7y8y" target="_blank" />
+    <a i-carbon-logo-github :href="pkg.repository.url" target="_blank" />
     <DarkToggle />
   </div>
 </template>
