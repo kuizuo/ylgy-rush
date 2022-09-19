@@ -70,37 +70,42 @@ const stop = async () => {
         填写要刷的次数，与并发数量（不宜过高），点击开始，即可开始刷次数。
       </n-alert>
 
-      <div mt-4 flex flex-col justify-center items-center gap-4>
-        <div flex justify-center items-center w-full lg:w-100>
-          <label min-w-20>uid</label>
-          <n-input v-model:value="uid" type="text" placeholder="请输入uid" @keydown.enter="getToken" />
-          <n-button type="primary" strong secondary @click="getToken">
-            获取Token
-          </n-button>
+      <ClientOnly>
+        <div mt-4 flex flex-col justify-center items-center gap-4>
+          <div flex justify-center items-center w-full lg:w-100>
+            <label min-w-20>uid</label>
+            <n-input v-model:value="uid" type="text" placeholder="请输入uid" @keydown.enter="getToken" />
+            <n-button type="primary" strong :disable="!uid" @click="getToken">
+              获取Token
+            </n-button>
+          </div>
+
+          <div flex justify-center items-center w-full lg:w-100>
+            <label min-w-20>Token</label>
+            <n-input v-model:value="token" type="text" placeholder="请输入token" />
+          </div>
+
+          <div flex justify-center items-center w-full lg:w-100>
+            <label min-w-20>次数</label>
+            <n-input-number v-model:value="config.times" w-full :min="1" :max="1000" clearable />
+          </div>
+          <div flex justify-center items-center w-full lg:w-100>
+            <label min-w-20>并发数量</label>
+            <n-input-number v-model:value="config.concurrent" w-full :min="1" :max="10" clearable />
+          </div>
         </div>
 
-        <div flex justify-center items-center w-full lg:w-100>
-          <label min-w-20>Token</label>
-          <n-input v-model:value="token" type="text" placeholder="请输入token" />
-        </div>
+        <n-button
+          type="info" class="!mt-4 !w-full !lg:w-100" strong secondary :disabled="!token"
+          @click="starting ? stop() : start()"
+        >
+          {{ starting ? '停止' : '开始' }}
+        </n-button>
 
-        <div flex justify-center items-center w-full lg:w-100>
-          <label min-w-20>次数</label>
-          <n-input-number v-model:value="config.times" w-full :min="1" :max="1000" clearable />
+        <div class="logs">
+          <n-log :rows="logs.length" :log="`${logs.join('\n')}`" />
         </div>
-        <div flex justify-center items-center w-full lg:w-100>
-          <label min-w-20>并发数量</label>
-          <n-input-number v-model:value="config.concurrent" w-full :min="1" :max="10" clearable />
-        </div>
-      </div>
-
-      <n-button type="info" mt-4 w-full lg:w-100 strong secondary :disabled="!token" @click="starting ? stop() : start()">
-        {{ starting ? '停止' : '开始' }}
-      </n-button>
-
-      <div class="logs">
-        <n-log :rows="logs.length" :log="`${logs.join('\n')}`" />
-      </div>
+      </ClientOnly>
     </n-card>
   </div>
 </template>
