@@ -71,7 +71,7 @@ const stop = async () => {
       </n-alert>
 
       <div mt-4 flex flex-col justify-center items-center gap-4>
-        <div flex justify-center items-center w-80 lg:w-100>
+        <div flex justify-center items-center w-full lg:w-100>
           <label min-w-20>uid</label>
           <n-input v-model:value="uid" type="text" placeholder="请输入uid" @keydown.enter="getToken" />
           <n-button type="primary" strong secondary @click="getToken">
@@ -79,22 +79,22 @@ const stop = async () => {
           </n-button>
         </div>
 
-        <div flex justify-center items-center w-80 lg:w-100>
+        <div flex justify-center items-center w-full lg:w-100>
           <label min-w-20>Token</label>
           <n-input v-model:value="token" type="text" placeholder="请输入token" />
         </div>
 
-        <div flex justify-center items-center w-80 lg:w-100>
+        <div flex justify-center items-center w-full lg:w-100>
           <label min-w-20>次数</label>
           <n-input-number v-model:value="config.times" w-full :min="1" :max="1000" clearable />
         </div>
-        <div flex justify-center items-center w-80 lg:w-100>
+        <div flex justify-center items-center w-full lg:w-100>
           <label min-w-20>并发数量</label>
           <n-input-number v-model:value="config.concurrent" w-full :min="1" :max="10" clearable />
         </div>
       </div>
 
-      <n-button type="info" mt-4 w-80 lg:w-100 strong secondary :disabled="!token" @click="starting ? stop() : start()">
+      <n-button type="info" mt-4 w-full lg:w-100 strong secondary :disabled="!token" @click="starting ? stop() : start()">
         {{ starting ? '停止' : '开始' }}
       </n-button>
 
