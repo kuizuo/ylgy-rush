@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.9.0",
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "postinstall": "nuxi prepare",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "axios": "^0.27.2",
+    "qs": "^6.11.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.26.2",
+    "@css-render/vue3-ssr": "^0.15.11",
+    "@iconify-json/carbon": "^1.1.7",
+    "@iconify-json/twemoji": "^1.1.5",
+    "@nuxtjs/color-mode": "^3.1.4",
+    "@pinia/nuxt": "^0.4.1",
+    "@unocss/nuxt": "^0.45.13",
+    "@vueuse/nuxt": "^9.1.1",
+    "eslint": "^8.23.0",
+    "naive-ui": "^2.33.3",
+    "nuxt": "^3.0.0-rc.8",
+    "pinia": "^2.0.21",
+    "typescript": "^4.8.2",
+    "unplugin-vue-components": "^0.22.7"
+  }
+}
